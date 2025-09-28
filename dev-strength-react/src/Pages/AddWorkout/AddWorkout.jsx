@@ -74,46 +74,46 @@ function AddWorkout() {
                     <h2 className="widget-header">Add Exercise</h2>
                     <form className={styles.workoutForm} onSubmit={handleAddExercise}>
                         <div className={styles.formGroup}>
-                            <label for="name">Workout Name:</label>
+                            <label htmlFor="name">Workout Name:</label>
                             <input  name="name" id="name" type="text" value={workoutName} placeholder="Legs" 
                                 readOnly={!isEditable} required onChange={(e) => setWorkoutName(e.target.value)}/>
                         </div>
                         <div className={styles.formGroup}>
-                            <label for="date">Date:</label>
-                            <input  name="date" id="date" type="date" value={date} readOnly={!isEditable} required 
+                            <label htmlFor="date">Date:</label>
+                            <input  name="date" id="date" type="date" value={date} readOnly={!isEditable} required
                                 onChange={(e) => setDate(e.target.value)}/> 
                         </div>
                         <div className={styles.formGroup}> 
-                            <label for="exercise">Exercise:</label>                            
+                            <label htmlFor="exercise">Exercise:</label>                            
                             <input  name="exercise" id="exercise" type="text" value={exercise} placeholder="Squats" 
                                     required onChange={(e) => setExercise(e.target.value)}/>
                         </div>
                         <div className={styles.formRow}>
                             <div className={styles.formGroup}>
-                                <label for="weight">Weight:</label>
+                                <label htmlFor="weight">Weight:</label>
                                 <input  name="weight" id="weight" type="number" value={weight} requried placeholder={200}
                                         onChange={(e) => setWeight(e.target.value)}/>
                             </div>
                             <div className={styles.formGroup}>
-                                <label for="sets">Sets:</label>
+                                <label htmlFor="sets">Sets:</label>
                                 <input  name="sets" id="sets" type="number" value={sets} required placeholder={3}
                                         onChange={(e) => setSets(e.target.value)}/>
                             </div>
                         </div>
                         <div className={styles.formRow}>
                             <div className={styles.formGroup}>
-                                <label for="reps">Reps Per Set:</label>
+                                <label htmlFor="reps">Reps Per Set:</label>
                                 <input  name="reps" id="reps" type="number" value={reps} required placeholder={8}
                                         onChange={(e) => setReps(e.target.value)}/>
                             </div>
                             <div className={styles.formGroup}>
-                                <label for="rpe">RPE (1-10):</label>
+                                <label htmlFor="rpe">RPE (1-10):</label>
                                 <input  name="rpe" id="rpe" type="number" value={rpe} max="10" required placeholder={7}
                                         onChange={(e) => setRpe(e.target.value)}/>
                             </div>
                         </div>
                         <div className={styles.formGroup}>
-                            <label for="notes">Notes:</label>
+                            <label htmlFor="notes">Notes:</label>
                             <textarea name="notes" id="notes" value={notes} placeholder="Optional" rows={4}
                                     readOnly={!isEditable} required onChange={(e) => setNotes(e.target.value)}/>
                         </div>
