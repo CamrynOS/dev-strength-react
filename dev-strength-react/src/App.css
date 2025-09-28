@@ -17,6 +17,7 @@
 
 html {
   font-family: "Poppins", sans-serif;
+  text-align: center;
 }
 
 body {
@@ -25,6 +26,7 @@ body {
   background-color: var(--background-clr);
   color: var(--text-clr);
 }
+
 
 /* create the app into a grid so that the nav bar is side by side with the main page */
 .app-grid {

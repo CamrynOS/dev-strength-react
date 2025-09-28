@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 
 import Sidebar from './Sidebar.jsx'
+import Dashboard from './Pages/Dashboard/Dashboard.jsx'
 
 function App() {
   
@@ -11,7 +12,7 @@ function App() {
     <div className="app-grid">
       <Sidebar/>
       <main className="content">
-
+        <Dashboard />
       </main>
     </div>
 

@@ -56,7 +56,7 @@
 .sidebar a:hover {
     background-color: var(--primary-clr);
     color: white;
-    border-radius: 5em;
+    border-radius: .5em;
 }
 
 .sidebar a:hover svg {
@@ -69,10 +69,17 @@
     border: none;
     background: none;
     cursor: pointer;
-    border-radius: 5em;
+    border-radius: .5em;
 
     svg {
         transition: rotate 150ms ease;
     }
 }
 
+.toggle-btn:hover {
+    background-color: var(--primary-clr);
+
+    svg {
+        fill: white;
+    }
+}
