@@ -70,49 +70,69 @@ function AddWorkout() {
         <main>
             <h1 className='page-title'>Add Workout</h1>
             <div className='widget-container'>
-                <div className={styles.addExerciseWidget}>
-                    <h2>Add Exercise</h2>
+                <div className={`widget ${styles.addWorkout}`}>
+                    <h2 className="widget-header">Add Exercise</h2>
                     <form className={styles.workoutForm} onSubmit={handleAddExercise}>
-                        <label>Workout Name:
-                            <input type="text" value={workoutName} placeholder="Legs" readOnly={!isEditable} required onChange={(e) => setWorkoutName(e.target.value)}/>
-                        </label>
-                        <label>Date:
-                            <input type="date" value={date} readOnly={!isEditable} required onChange={(e) => setDate(e.target.value)}/>
-                        </label>
-                        <label>Exercise:
-                            <input type="text" value={exercise} placeholder="Squats" required onChange={(e) => setExercise(e.target.value)}/>
-                        </label>
-                        <label>Weight:
-                            <input type="number" value={weight} requried onChange={(e) => setWeight(e.target.value)}/>
-                        </label>
-                        <label>Sets:
-                            <input type="number" value={sets} required onChange={(e) => setSets(e.target.value)}/>
-                        </label>
-                        <label>Reps Per Set:
-                            <input type="number" value={reps} required onChange={(e) => setReps(e.target.value)}/>
-                        </label>
-                        <label>RPE (1-10):
-                            <input type="number" value={rpe} max="10" required onChange={(e) => setRpe(e.target.value)}/>
-                        </label>
-                        <label>Notes:
-                            <textarea value={notes} placeholder="Optional" readOnly={!isEditable} required onChange={(e) => setNotes(e.target.value)}/>
-                        </label>
-                        <button type="submit">Add Exercise</button>
+                        <div className={styles.formGroup}>
+                            <label for="name">Workout Name:</label>
+                            <input  name="name" id="name" type="text" value={workoutName} placeholder="Legs" 
+                                readOnly={!isEditable} required onChange={(e) => setWorkoutName(e.target.value)}/>
+                        </div>
+                        <div className={styles.formGroup}>
+                            <label for="date">Date:</label>
+                            <input  name="date" id="date" type="date" value={date} readOnly={!isEditable} required 
+                                onChange={(e) => setDate(e.target.value)}/> 
+                        </div>
+                        <div className={styles.formGroup}> 
+                            <label for="exercise">Exercise:</label>                            
+                            <input  name="exercise" id="exercise" type="text" value={exercise} placeholder="Squats" 
+                                    required onChange={(e) => setExercise(e.target.value)}/>
+                        </div>
+                        <div className={styles.formRow}>
+                            <div className={styles.formGroup}>
+                                <label for="weight">Weight:</label>
+                                <input  name="weight" id="weight" type="number" value={weight} requried placeholder={200}
+                                        onChange={(e) => setWeight(e.target.value)}/>
+                            </div>
+                            <div className={styles.formGroup}>
+                                <label for="sets">Sets:</label>
+                                <input  name="sets" id="sets" type="number" value={sets} required placeholder={3}
+                                        onChange={(e) => setSets(e.target.value)}/>
+                            </div>
+                        </div>
+                        <div className={styles.formRow}>
+                            <div className={styles.formGroup}>
+                                <label for="reps">Reps Per Set:</label>
+                                <input  name="reps" id="reps" type="number" value={reps} required placeholder={8}
+                                        onChange={(e) => setReps(e.target.value)}/>
+                            </div>
+                            <div className={styles.formGroup}>
+                                <label for="rpe">RPE (1-10):</label>
+                                <input  name="rpe" id="rpe" type="number" value={rpe} max="10" required placeholder={7}
+                                        onChange={(e) => setRpe(e.target.value)}/>
+                            </div>
+                        </div>
+                        <div className={styles.formGroup}>
+                            <label for="notes">Notes:</label>
+                            <textarea name="notes" id="notes" value={notes} placeholder="Optional" rows={4}
+                                    readOnly={!isEditable} required onChange={(e) => setNotes(e.target.value)}/>
+                        </div>
+                        <button type="submit" className={styles.button}>Add Exercise</button>
                     </form>
                 </div>
-                <div className={styles.workoutSummaryWidget}>
-                    <h2>Workout Summary</h2>
+                <div className={`widget ${styles.workoutSummary}`}>
+                    <h2 className="widget-header">Workout Summary</h2>
                     {currentExercises.length === 0 ? (
                         <p>No exercises added yet.</p>
                     ) : (
-                    <ul>
+                    <ul className={styles.workoutList}>
                         {currentExercises.map((exercise, idx) => (
                             <li key={idx}>
                                 <b>{exercise.exercise}</b> ~ {exercise.reps} reps x {exercise.sets} sets @ {exercise.weight}lbs (RPE: {exercise.rpe})
                             </li>
                         ))}
                     </ul>)}
-                    <button onClick={handleSaveWorkout} disabled={currentExercises.length === 0}>Save Workout</button>
+                    <button className={styles.button} onClick={handleSaveWorkout} disabled={currentExercises.length === 0}>Save Workout</button>
                 </div>
             </div>
         </main>

@@ -1,4 +1,118 @@
-.workoutForm {
+/*.addExerciseWidget {
+    width: 40%;
+    min-width: 325px;
+    max-width: 500px;
+    background-color: var(--card-background-clr);
+    padding: 10px 20px;
+    border-radius: .5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.05);
+}
+
+.workoutSummaryWidget {
+    width: 40%;
+    background-color: var(--card-background-clr);
+    padding: 10px 20px;
+    border-radius: .5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.05);
     display: flex;
     flex-direction: column;
+}*/
+
+.addWorkout {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.formGroup {
+    padding: 10px;
+    text-align: left;
+}
+
+.workoutForm label {
+    text-align: left;
+    font-weight: 600;
+    margin-bottom: -10px;
+}
+
+.formRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3em;
+    text-align: left;
+}
+
+input, textarea, button {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid var(--text-clr);
+    border-radius: .5em;
+    font: inherit;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--primary-clr);
+    box-shadow: 0 0 5px var(--primary-clr);
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+textarea {
+    resize: none;
+}
+
+.button {
+    background-color: var(--primary-clr);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: var(--secondary-clr);
+    transform: scale(1.05);
+}
+
+.workoutSummary {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+}
+
+.workoutSummary .button {
+    margin-top: auto;
+}
+
+input::placeholder {
+    color: gray;
+}
+
+input[type='date'] {
+    color: gray;
+}
+
+input[type='date']:valid {
+    color: var(--text-clr);
+}
+
+.workoutList {
+    list-style: none;
+    
+}
+.workoutList li {
+    border-bottom: 1px solid black;
+    border-width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.workoutList li:last-child {
+    border: none;
 }
