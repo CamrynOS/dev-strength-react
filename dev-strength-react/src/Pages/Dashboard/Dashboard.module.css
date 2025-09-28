@@ -1,9 +1,3 @@
-.pageTitle {
-    text-align: center;
-    font-size: 2.5rem;
-    text-decoration: underline;
-    text-decoration-color: var(--secondary-clr);
-}
 
 .streakWidget {
     width: 20%;
@@ -21,13 +15,6 @@
     text-decoration-color: var(--secondary-clr);
 }
 
-.widgetContainer {
-    display: flex;
-    width: 100%;
-    margin: 20px auto;
-    justify-content: space-around;
-    padding: 20px;
-}
 
 .widget {
     min-width: 250px;

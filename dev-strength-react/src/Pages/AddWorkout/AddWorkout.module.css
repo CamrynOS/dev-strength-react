@@ -1,0 +1,4 @@
+.workoutForm {
+    display: flex;
+    flex-direction: column;
+}

@@ -33,3 +33,19 @@ body {
   display: grid;
   grid-template-columns: auto 1fr;
 }
+
+.page-title {
+    text-align: center;
+    font-size: 2.5rem;
+    text-decoration: underline;
+    text-decoration-color: var(--secondary-clr);
+}
+
+
+.widget-container {
+    display: flex;
+    width: 100%;
+    margin: 20px auto;
+    justify-content: space-around;
+    padding: 20px;
+}

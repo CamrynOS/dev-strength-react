@@ -50,21 +50,9 @@ function Sidebar() {
 
                 {/* 
                     loop over the navItems array, and assign each item to a <li> where the key is the item's id,
-                    the class is set to "active" only if the activePage is the same as the item's id,
-                    when the li is clicked on, the new activePage will be set to the item id.
-                    the information displayed is the item's label in the <a> tag
+                    NavLink is used to set the path of the <li> and keep track of the active status
                  */}
                 {navItems.map((item) => (
-                    // <li 
-                    //     key={item.id}
-                    //     className={activePage === item.id ? "active" : ""}
-                    //     onClick={() => setActivePage(item.id)}
-                    // >
-                    //     <a>
-                    //         {item.icon}
-                    //         {item.label}
-                    //     </a>
-                    // </li>
                     <li key={item.id}>
                         <NavLink    
                             to={item.path}
