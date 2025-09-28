@@ -32,11 +32,14 @@
     font-weight: 600;
 }
 
-.sidebar ul li.active a {
+/*.sidebar ul li.active a {
+    color: var(--secondary-clr);
+}*/
+.sidebar a.active {
     color: var(--secondary-clr);
 }
 
-.sidebar ul li.active a svg {
+.sidebar a.active svg {
     fill: var(--secondary-clr);
 }
 
