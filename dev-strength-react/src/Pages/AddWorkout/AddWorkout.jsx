@@ -56,7 +56,7 @@ function AddWorkout() {
 
         const savedWorkouts = JSON.parse(localStorage.getItem("workouts")) || [];
         const updatedWorkouts = [...savedWorkouts, newWorkout];
-        localStorage.setItem("workout", JSON.stringify(updatedWorkouts));
+        localStorage.setItem("workouts", JSON.stringify(updatedWorkouts));
 
         // clear the rest of the elements and currentExcersises array and let elements be editable again
         setWorkoutName("");
