@@ -9,8 +9,9 @@
 }
 
 .historyTable {
-    width: 100%;
+    width: 90%;
     border-collapse: collapse;
+    background-color: var(--card-background-clr);
 }
 
 .historyTable th, .historyTable td {
@@ -22,3 +23,48 @@
     background-color: var(--secondary-clr);
 }
 
+.button {
+    display: inline;
+    width: 40%;
+    margin: 0 10px;
+    background-color: var(--secondary-clr);
+    border: none;
+    padding: 1em .5em;
+}
+
+.button:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+    filter: opacity(80%)
+}
+
+.deleteButton {
+    background-color: #EB5E55;
+}
+
+.filters {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 20px auto -20px;
+    width: 50%;
+}
+
+.sortOptions {
+    width: 40%;
+    padding: 1em;
+    border: 1px solid var(--text-clr);
+    font-family: inherit;
+}
+
+.searchBar {
+    width: 55%;
+    border: 1px solid var(--text-clr);
+    padding: 1em;
+    font-family: inherit;
+}
+
+.searchBar:focus, .sortOptions:focus {
+    border-color: var(--primary-clr);
+    outline: none;
+    box-shadow: 0 0 5px var(--primary-clr);
+}

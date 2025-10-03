@@ -32,9 +32,6 @@
     font-weight: 600;
 }
 
-/*.sidebar ul li.active a {
-    color: var(--secondary-clr);
-}*/
 .sidebar a.active {
     color: var(--secondary-clr);
 }

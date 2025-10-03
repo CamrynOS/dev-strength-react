@@ -97,7 +97,7 @@ function History() {
             <div className={`widget-container`}>
                 {workouts.length === 0 ? 
                 <p>No workouts saved yet.</p> : 
-                <table className={`widget ${styles.historyTable}`}>
+                <table className={styles.historyTable}>
                     <thead>
                         <tr>
                             <th>Date</th>
@@ -116,7 +116,7 @@ function History() {
                                     <td>
                                         <button className={styles.button} onClick={() => toggleRow(idx)}>
                                             {expandedRows.includes(idx) ? "Hide" : "View"}</button>
-                                        <button className={styles.button} onClick={() => handleDeleteBtn(idx)}>Delete</button>
+                                        <button className={`${styles.button} ${styles.deleteButton}`} onClick={() => handleDeleteBtn(idx)}>Delete</button>
                                     </td>
                                 </tr>
 

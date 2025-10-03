@@ -55,7 +55,7 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .button:hover {
-    background-color: var(--secondary-clr);
+    filter: opacity(80%);
     transform: scale(1.05);
 }
 
