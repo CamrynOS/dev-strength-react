@@ -49,7 +49,7 @@ function Stats() {
         // for ALL exercises, save each exercises num of sets to the key with exercise's name (e.g., pulldown: 2, squats: 7)
         allExercises.forEach(ex => { 
             const sets = ex.sets;
-            exerciseSets[ex.exercise] = sets;
+            exerciseSets[ex.exercise] = exerciseSets[ex.exercise] + sets;
         })
 
         // Object.entries() turns exerciseSets into a 2D array for easier sorting
@@ -95,7 +95,10 @@ function Stats() {
     }, {});
 
     // turn object into array and sort, so that earliest date is on the left of the graph
-    const chartData = Object.values(groupByDate).sort((a,b) => new Date(a.date) - new Date(b.date));
+    const chartData = Object.values(groupByDate).map(d => ({
+        ...d,
+        date: new Date(d.date)
+    })).sort((a,b) => a.date - b.date);
 
     return(
         <main>
@@ -124,14 +127,19 @@ function Stats() {
             </div>
             <div className={styles.graphContainer}>
                 <h3>Weight Lifted Over Time</h3>
-                <ResponsiveContainer width="100%" aspect={3}>
+
+                <ResponsiveContainer width="100%" aspect={2.5}>
                     <LineChart data={chartData}>
                         <CartesianGrid />
-                        <XAxis dataKey="date"/>
-                        <YAxis label={{value: "Total Volume (lbs)", angle: -90, position: "insideLeft"}}/>
-                        <Tooltip contentStyle={{backgroundColor: "var(--card-background-clr", color: "var(--text-clr"}} itemStyle={{color: "var(--text-clr)"}} formatter={(value, name, props) => [
-                            `${value} lbs`, props.payload.workoutName
-                        ]} labelFormatter={(label) => `Date: ${label}`} />
+                        <XAxis dataKey="date" scale="time" type="number" domain={["auto","auto"]} 
+                               tickFormatter={(date) => new Date(date).toLocaleDateString('en-US', {month: "2-digit", year: "2-digit"})}/>
+                        <YAxis label={{value: "Total Volume (lbs)", angle: -90, position: "insideLeft", style: {textAnchor: "middle"}}} 
+                                width={75} 
+                                tickFormatter={(value) => `${(value > 10000 ? (value / 1000) + 'k' : value)}`}/>
+                        <Tooltip contentStyle={{backgroundColor: "var(--card-background-clr", color: "var(--text-clr"}}
+                                itemStyle={{color: "var(--text-clr)"}} 
+                                labelFormatter={(label) => `Date: ${new Date(label).toLocaleDateString('en-US', {year: 'numeric', month: '2-digit', day: '2-digit'})}`} formatter={(value, name, props) => [
+                                `${value} lbs`, props.payload.workoutName]} />
                         <Line type="monotone" stroke="var(--primary-clr)" dataKey="totalWeight" strokeWidth={3} activeDot={{r:8}}/>
                     </LineChart>
                 </ResponsiveContainer>
