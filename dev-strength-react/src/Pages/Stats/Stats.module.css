@@ -1,0 +1,39 @@
+.viewFilterContainer {
+    border: 1px solid black;
+    text-align: left;
+    padding: 20px;
+    margin: 1em;
+    background-color: var(--card-background-clr);
+    border-radius: .5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.05);
+    border: none;
+}
+
+.filterBar {
+    padding: 10px;
+    width: 60%;
+    border-radius: .5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--text-clr);
+    font-family: inherit;
+}
+
+.filterBar:focus {
+    outline: none;
+    border-color: var(--primary-clr);
+    box-shadow: 0 0 5px var(--primary-clr);
+}
+
+.quickStatsContainer {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 1em;
+}
+
+.statWidget {
+    margin: 0 1em;
+    padding: .5em;
+    border-radius: .5rem;
+    background-color: var(--card-background-clr);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.05);
+}
