@@ -1,8 +1,11 @@
+.main {
+    color: var(--text-clr);
+}
+
 .viewFilterContainer {
-    border: 1px solid black;
     text-align: left;
     padding: 20px;
-    margin: 1em;
+    margin: 2em 1em 0;
     background-color: var(--card-background-clr);
     border-radius: .5rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.05);
@@ -27,7 +30,8 @@
 .quickStatsContainer {
     display: flex;
     justify-content: space-evenly;
-    margin: 1em;
+    margin: 1em 1em 2em;
+    padding: 1em;
 }
 
 .statWidget {
@@ -36,4 +40,11 @@
     border-radius: .5rem;
     background-color: var(--card-background-clr);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.05);
+    width: 50%;
 }
+
+.graphContainer {
+    margin: 0 auto;
+    width: 90%;
+}
+

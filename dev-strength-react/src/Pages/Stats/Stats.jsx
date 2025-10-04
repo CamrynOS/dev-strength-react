@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, Label } from 'recharts';
 import styles from './Stats.module.css'
 
 function Stats() {
@@ -26,9 +27,9 @@ function Stats() {
 
     /*           -----calculating and storing all the stats-----          */
 
-    // keep count acc of total volume, go through filteredExercises and multiply the weight and reps for each exercise, leading to total volume
+    // keep count acc of total volume, go through filteredExercises and multiply the weight, reps, sets for each exercise, leading to total volume
     // reduce is an easy way to convert the filteredExercises object to a single number
-    const totalVolume = filteredExercises.reduce((acc, ex) => acc + ex.weight * ex.reps, 0);
+    const totalVolume = filteredExercises.reduce((acc, ex) => acc + ex.weight * ex.reps * ex.sets, 0);
 
     // if there are filtered exercises, keep count sum rpe to acc for all filtered exercise, then divide by amount of exercises for average (toFixed for 2 decimals)
     const avgRpe = filteredExercises.length ? (filteredExercises.reduce((acc, ex) => acc + parseFloat(ex.rpe), 0) / filteredExercises.length).toFixed(2) : 0;
@@ -37,6 +38,7 @@ function Stats() {
     let topStat = "";
     let totalStat;
     let maxWeight;
+    let sets;
 
     // if there is not a filter (i.e., user wants to reference all exercises)
     if (!filter) {
@@ -48,7 +50,6 @@ function Stats() {
         allExercises.forEach(ex => { 
             const sets = ex.sets;
             exerciseSets[ex.exercise] = sets;
-            console.log(exerciseSets);
         })
 
         // Object.entries() turns exerciseSets into a 2D array for easier sorting
@@ -67,12 +68,34 @@ function Stats() {
         topStat = maxWeight ? `${maxWeight} lbs` : "None";
 
         // for each exercise in filtered excercises, sum up the number of sets for that particular exercise
-        let sets = 0;
+        sets = 0;
         filteredExercises.forEach(ex => {
             sets += Number(ex.sets);
         })
         totalStat = sets;
     }
+
+    // group all exercises by date to easily merge them all into the graph
+    const groupByDate = filteredExercises.reduce((acc, ex) => {
+        const date = ex.date;
+        const volume = ex.weight * ex.reps * ex.sets;
+
+        // if there is not already an entry associated with a date, then make a new entry with that date key
+        if (!acc[date]) {
+            acc[date] = {
+                date, 
+                totalWeight: 0,
+                workoutName: ex.workoutName
+            }
+        }
+
+        // set totalWeight (volume) for this date entry to be the volume for that date
+        acc[date].totalWeight += volume;
+        return acc; // just so we can iterate through again
+    }, {});
+
+    // turn object into array and sort, so that earliest date is on the left of the graph
+    const chartData = Object.values(groupByDate).sort((a,b) => new Date(a.date) - new Date(b.date));
 
     return(
         <main>
@@ -83,7 +106,7 @@ function Stats() {
             </div>
             <div className={styles.quickStatsContainer}>
                 <div className={styles.statWidget}>
-                    <h3>{totalStat === workouts.length ? `Total Workouts` : `Total Sets`}</h3>
+                    <h3>{totalStat === sets ? `Total Sets` : `Total Workouts`}</h3>
                     <p>{totalStat}</p>
                 </div>
                 <div className={styles.statWidget}>
@@ -101,6 +124,17 @@ function Stats() {
             </div>
             <div className={styles.graphContainer}>
                 <h3>Weight Lifted Over Time</h3>
+                <ResponsiveContainer width="100%" aspect={3}>
+                    <LineChart data={chartData}>
+                        <CartesianGrid />
+                        <XAxis dataKey="date"/>
+                        <YAxis label={{value: "Total Volume (lbs)", angle: -90, position: "insideLeft"}}/>
+                        <Tooltip contentStyle={{backgroundColor: "var(--card-background-clr", color: "var(--text-clr"}} itemStyle={{color: "var(--text-clr)"}} formatter={(value, name, props) => [
+                            `${value} lbs`, props.payload.workoutName
+                        ]} labelFormatter={(label) => `Date: ${label}`} />
+                        <Line type="monotone" stroke="var(--primary-clr)" dataKey="totalWeight" strokeWidth={3} activeDot={{r:8}}/>
+                    </LineChart>
+                </ResponsiveContainer>
             </div>
         </main>
     );
