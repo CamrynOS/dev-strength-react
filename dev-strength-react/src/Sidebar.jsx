@@ -26,7 +26,7 @@ function Sidebar() {
         {id: "add-workout", label: "Add Workout", icon: addWorkoutIcon, path: "/add-workout"},
         {id: "history", label: "History", icon: historyIcon, path: "/history"},
         {id: "stats", label: "Stats", icon: statsIcon, path: "/stats"},
-        {id: "schedule", label: "Change Schedule", icon: changeScheduleIcon, path: "/schedule"}
+        {id: "schedule", label: "Schedule", icon: changeScheduleIcon, path: "/change-schedule"}
     ];
 
     return(

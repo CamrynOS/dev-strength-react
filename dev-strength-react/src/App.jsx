@@ -6,7 +6,7 @@ import Dashboard from './Pages/Dashboard/Dashboard.jsx'
 import AddWorkout from './Pages/AddWorkout/AddWorkout.jsx'
 import History from './Pages/History/History.jsx'
 import Stats from './Pages/Stats/Stats.jsx'
-import ChangeSchedule from './Pages/History/History.jsx'
+import ChangeSchedule from './Pages/ChangeSchedule/ChangeSchedule.jsx'
 
 function App() {
   
