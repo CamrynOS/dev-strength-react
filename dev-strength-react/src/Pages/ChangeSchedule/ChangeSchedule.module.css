@@ -1,0 +1,234 @@
+.header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.subheader {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 auto;
+    padding: 1rem 0;
+}
+
+.controls {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.editButton, .saveButton, .cancelButton {
+    padding: 0.4rem 0.8rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: "Poppins", sans-serif;
+}
+
+.editButton:hover, .saveButton:hover, .cancelButton:hover, .removeButton:hover {
+    transform: scale(1.05);
+    filter: opacity(80%);
+}
+
+.saveButton, .editButton {
+    background-color: var(--primary-clr);
+    color: white;
+}
+
+.cancelButton {
+    background-color: #EB5E55;
+    color: white;
+}
+
+.editControls {
+    display: flex;
+    gap: 1rem;
+}
+
+.scheduleContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    width: 90%;
+    margin: .5rem auto 3rem;
+}
+
+.dayCard {
+    background: var(--card-background-clr);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.05);
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    min-height: 120px;
+}
+
+/* make the last card centered */
+.dayCard:last-child {
+    grid-column: 2;
+}
+
+.dayCard:hover {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    transform: translateX(4px);
+    border: 1px solid var(--primary-clr);
+}
+
+.todayCard {
+    border: 1px solid var(--primary-clr);
+}
+
+.dayTitle {
+    font-size: 1rem;
+    color: var(--text-clr);
+    margin-bottom: .5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    text-align: center;
+    flex-wrap: wrap;
+}
+
+.dayTitleUnderline {
+    text-decoration: underline;
+    text-decoration-color: var(--secondary-clr);
+}
+
+.inlineWorkoutName {
+    font-size: 0.9rem;
+    color: var(--secondary-clr);
+    font-style: italic;
+}
+
+.todayBadge {
+    background-color: var(--primary-clr);
+    color: white;
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.25rem;
+    font-size: 0.7rem;
+}
+
+.editMode {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    flex: 1;
+}
+
+.workoutInput {
+    padding: 0.5rem;
+    border: 1px solid var(--nav-clr);
+    border-radius: 0.5rem;
+    transition: 0.2s ease;
+    font-family: "Poppins", sans-serif;
+    color: var(--text-clr);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.05);
+}
+
+.workoutInput:focus, .exerciseInput:focus {
+    outline: none;
+    border-color: var(--primary-clr);
+    box-shadow: 0 0 5px var(--primary-clr);
+}
+
+.exercisesSection {
+    margin-top: 0.5rem;
+}
+
+.exerciseRow {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.4rem;
+    align-items: center;
+}
+
+.exerciseInput {
+    flex: 1;
+    padding: 0.4rem;
+    border: 1px solid var(--nav-clr);
+    border-radius: 0.5rem;
+    font-size: 0.8rem;
+    font-family: "Poppins", sans-serif;
+    color: var(--text-clr);
+    transition: 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.05);
+}
+
+.removeButton {
+    background-color: #EB5E55;
+    color: white;
+    border: none;
+    border-radius: 1em;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: 0.2s ease;
+}
+
+.addExerciseButton {
+    background-color: var(--card-background-clr);
+    color: var(--primary-clr);
+    border: 1px dashed var(--primary-clr);
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    margin-top: 0.4rem;
+    font-family: "Poppins", sans-serif;
+}
+
+.addExerciseButton:hover {
+    background-color: var(--primary-clr);
+    color: white;
+    transform: scale(1.05);
+}
+
+.viewMode {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+    align-items: center;
+    text-align: center;
+}
+
+.exercisesContainer {
+    margin-top: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.exerciseItem {
+    background-color: var(--secondary-clr);
+    color: white;
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.8rem;
+}
+
+.restDay {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: .5rem;
+    background-color: var(--card-background-clr);
+    border-radius: 0.25rem;
+    border: 1px solid var(--primary-clr);
+}
+
+.restDayText {
+    font-size: 0.9rem;
+    color: var(--text-clr);
+    font-style: italic;
+}

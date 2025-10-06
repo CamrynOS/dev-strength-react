@@ -113,8 +113,10 @@ function ChangeSchedule() {
                 {days.map((day, index) => (
                     <div key={day} className={`${styles.dayCard} ${isToday(day) ? styles.todayCard : ''}`}>
                         <h3 className={styles.dayTitle}>
-                            {days[index]}
-                            {isToday(day) && <span className={styles.todayBadge}>Today</span>}
+
+                            {isToday(day) && <span className={styles.todayBadge}>TODAY</span>}
+                            <span className={styles.dayTitleUnderline}>{days[index]}</span>
+                            
                             {!isEditing && schedule[day].workoutName && (
                                 <span className={styles.inlineWorkoutName}>
                                     - {schedule[day].workoutName}
@@ -143,7 +145,7 @@ function ChangeSchedule() {
                                                 onChange={(e) => updateExercise(day, exerciseIndex, e.target.value)}
                                                 className={styles.exerciseInput}/>
                                             <button onClick={() => removeExercise(day, exerciseIndex)} 
-                                                    className={styles.removeButton}>x
+                                                    className={styles.removeButton}>X
                                             </button>
                                         </div>
                                     ))}
